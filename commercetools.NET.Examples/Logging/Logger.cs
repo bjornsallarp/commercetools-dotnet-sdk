@@ -1,8 +1,7 @@
 ﻿using System.Reflection;
-
 using log4net;
 
-namespace commercetools.Common
+namespace commercetools.Examples.Logging
 {
     /// <summary>
     /// A simple log module using log4net.

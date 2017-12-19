@@ -3,7 +3,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace commercetools.Common
+namespace commercetools.Examples.Logging
 {
     /// <summary>
     /// Logging handler for the Client methods.
@@ -14,7 +14,8 @@ namespace commercetools.Common
         /// Constructor
         /// </summary>
         /// <param name="innerHandler"></param>
-        public ClientLoggingHandler(HttpMessageHandler innerHandler)
+        public ClientLoggingHandler
+            (HttpMessageHandler innerHandler)
             : base(innerHandler)
         {
         }

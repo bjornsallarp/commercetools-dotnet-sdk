@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Configuration;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 using commercetools.Common;
+using commercetools.Examples.Logging;
 using commercetools.Project;
 
 using Configuration = commercetools.Common.Configuration;
@@ -46,9 +48,12 @@ namespace commercetools.Examples
                 Environment.ExpandEnvironmentVariables(ConfigurationManager.AppSettings["commercetools.ClientID"]),
                 Environment.ExpandEnvironmentVariables(ConfigurationManager.AppSettings["commercetools.ClientSecret"]),
                 ProjectScope.ManageProject);
-
-            Client client = new Client(configuration);
-
+            
+            // By injecting the ClientLoggingHandler it's possible to intercept requests and log them.
+            // You can create your own custom handlers for whatever requirements you have
+            HttpClient httpClient = new HttpClient(new ClientLoggingHandler(new HttpClientHandler()));
+            Client client = new Client(configuration, httpClient);
+            
             /*  GET PROJECT
              *  ===================================================================================
              *  The project reference has information about the project that is used in subsequent

@@ -36,9 +36,6 @@
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -153,7 +150,6 @@
     <Compile Include="Common\AssetDimensions.cs" />
     <Compile Include="Common\AssetDraft.cs" />
     <Compile Include="Common\AssetSource.cs" />
-    <Compile Include="Common\ClientLoggingHandler.cs" />
     <Compile Include="Common\Configuration.cs" />
     <Compile Include="Common\ResponseModelFactory.cs" />
     <Compile Include="Common\UpdateActions\GenericAction.cs" />
@@ -497,7 +493,6 @@
     <Compile Include="Products\ProductManager.cs" />
     <Compile Include="Products\ProductVariant.cs" />
     <Compile Include="Products\ProductVariantAvailability.cs" />
-    <Compile Include="Common\Logger.cs" />
     <Compile Include="Categories\CategoryManager.cs" />
     <Compile Include="Common\Client.cs" />
     <Compile Include="Common\Enums.cs" />
