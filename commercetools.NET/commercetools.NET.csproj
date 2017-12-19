@@ -155,6 +155,7 @@
     <Compile Include="Common\AssetSource.cs" />
     <Compile Include="Common\ClientLoggingHandler.cs" />
     <Compile Include="Common\Configuration.cs" />
+    <Compile Include="Common\ResponseModelFactory.cs" />
     <Compile Include="Common\UpdateActions\GenericAction.cs" />
     <Compile Include="Common\PagedQueryResult.cs" />
     <Compile Include="Common\Response.cs" />

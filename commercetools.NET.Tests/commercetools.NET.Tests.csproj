@@ -74,6 +74,7 @@
     <Compile Include="CartDiscountManagerTests.cs" />
     <Compile Include="CartManagerTest.cs" />
     <Compile Include="CategoryManagerTest.cs" />
+    <Compile Include="ResponseModelFactoryTests.cs" />
     <Compile Include="CustomerManagerTest.cs" />
     <Compile Include="DiscountCodeManagerTests.cs" />
     <Compile Include="Helper.cs" />

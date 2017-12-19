@@ -35,6 +35,8 @@ namespace commercetools.Common
         /// </summary>
         public string UserAgent { get; private set; }
 
+        public ResponseModelFactory ResponseModelFactory { get; private set; }
+
         #endregion
 
         #region Constructors
@@ -50,8 +52,9 @@ namespace commercetools.Common
             string assemblyVersion = assembly.GetName().Version.ToString();
             string dotNetVersion = Environment.Version.ToString();
             this.UserAgent = string.Format("commercetools-dotnet-sdk/{0} .NET/{1}", assemblyVersion, dotNetVersion);
+            this.ResponseModelFactory = new ResponseModelFactory();
         }
-
+        
         #endregion
 
         #region Web Service Methods
@@ -326,12 +329,10 @@ namespace commercetools.Common
                 else
                 {
                     dynamic data = JsonConvert.DeserializeObject(await httpResponseMessage.Content.ReadAsStringAsync());
-                    ConstructorInfo constructor = Helper.GetConstructorWithDataParameter(resultType);
-
-                    if (constructor != null)
+                    T model = ResponseModelFactory.CreateInstance<T>(data);
+                    if (model != null)
                     {
-                        Helper.ObjectActivator<T> activator = Helper.GetActivator<T>(constructor);
-                        response.Result = activator(data);
+                        response.Result = model;
                     }
                 }
             }
